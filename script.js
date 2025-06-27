@@ -66,12 +66,20 @@ function calculateDayHours(day) {
     const endPeriod = document.getElementById(`${day}-end-period`).value;
     const totalElement = document.getElementById(`${day}-total`);
 
-    // التحقق من وجود قيم صالحة وليست كلها صفر
-    if (startHour !== null && endHour !== null) {
+    // التحقق من وجود قيم صالحة
+    if (startHour !== null && endHour !== null && startMinute !== null && endMinute !== null) {
+
+        // إذا كان أي من الساعات 0، اجعل المجموع 0
+        if (parseInt(startHour) === 0 || parseInt(endHour) === 0) {
+            totalElement.textContent = '0 ساعة';
+            return { hours: 0, minutes: 0 };
+        }
+
         // تحويل الوقت إلى تنسيق 24 ساعة
         let startHour24 = parseInt(startHour);
         let endHour24 = parseInt(endHour);
 
+        // التعامل مع تحويل AM/PM
         if (startPeriod === 'PM' && startHour24 !== 12) {
             startHour24 += 12;
         } else if (startPeriod === 'AM' && startHour24 === 12) {
@@ -88,15 +96,14 @@ function calculateDayHours(day) {
         const start = new Date(2000, 0, 1, startHour24, parseInt(startMinute));
         const end = new Date(2000, 0, 1, endHour24, parseInt(endMinute));
 
-        // إذا كان الوقت نفسه (0:00 AM إلى 0:00 PM مثلاً) أو لا يوجد فرق حقيقي
-        if (start.getTime() === end.getTime() ||
-            (startHour24 === 0 && endHour24 === 0 && startPeriod === endPeriod)) {
+        // التحقق من الحالات الخاصة - إذا كان الوقت نفسه
+        if (startHour24 === endHour24 && parseInt(startMinute) === parseInt(endMinute) && startPeriod === endPeriod) {
             totalElement.textContent = '0 ساعة';
             return { hours: 0, minutes: 0 };
         }
 
         // التعامل مع الحالة التي ينتهي فيها الدوام في اليوم التالي
-        if (end < start) {
+        if (end <= start) {
             end.setDate(end.getDate() + 1);
         }
 
@@ -106,11 +113,11 @@ function calculateDayHours(day) {
 
         if (diffHours > 0 || diffMinutes > 0) {
             totalElement.textContent = formatTime(diffHours, diffMinutes);
+            return { hours: diffHours, minutes: diffMinutes };
         } else {
             totalElement.textContent = '0 ساعة';
+            return { hours: 0, minutes: 0 };
         }
-
-        return { hours: diffHours, minutes: diffMinutes };
     } else {
         totalElement.textContent = '0 ساعة';
         return { hours: 0, minutes: 0 };
