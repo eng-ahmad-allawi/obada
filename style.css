@@ -141,7 +141,7 @@ main {
 .time-inputs {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 12px;
 }
 
 .input-group {
@@ -177,7 +177,7 @@ main {
 .custom-time-input {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     background: linear-gradient(145deg, #ffffff, #f8f9fa);
     border: 2px solid #e3e6ea;
     border-radius: 12px;
@@ -186,6 +186,8 @@ main {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     position: relative;
     overflow: hidden;
+    width: 100%;
+    min-width: 0;
 }
 
 .custom-time-input::before {
@@ -220,12 +222,18 @@ main {
     color: #2c3e50;
     cursor: pointer;
     outline: none;
-    padding: 6px 8px;
+    padding: 6px 4px 6px 8px;
     border-radius: 8px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1;
+    flex-shrink: 0;
+    min-width: 0;
+    text-align: center;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .time-select:hover {
@@ -252,11 +260,14 @@ main {
 }
 
 .hour-select {
-    min-width: 35px;
+    width: 40px;
     text-align: center;
     background: linear-gradient(145deg, #667eea, #764ba2);
     color: white;
     font-weight: 700;
+    flex: 0 0 40px;
+    padding-left: 6px;
+    padding-right: 2px;
 }
 
 .hour-select:hover {
@@ -265,11 +276,14 @@ main {
 }
 
 .minute-select {
-    min-width: 35px;
+    width: 40px;
     text-align: center;
     background: linear-gradient(145deg, #4facfe, #00f2fe);
     color: white;
     font-weight: 700;
+    flex: 0 0 40px;
+    padding-left: 6px;
+    padding-right: 2px;
 }
 
 .minute-select:hover {
@@ -278,12 +292,15 @@ main {
 }
 
 .period-select {
-    min-width: 55px;
+    width: 58px;
     text-align: center;
     font-size: 0.8em;
     background: linear-gradient(145deg, #fa709a, #fee140);
     color: white;
     font-weight: 700;
+    flex: 0 0 58px;
+    padding-left: 6px;
+    padding-right: 2px;
 }
 
 .period-select:hover {
@@ -400,22 +417,28 @@ main {
 
     .time-select {
         font-size: 0.8em;
-        padding: 4px 6px;
+        padding: 5px 3px 5px 6px;
         border-radius: 6px;
     }
 
     .hour-select, .minute-select {
-        min-width: 32px;
+        width: 34px;
+        flex: 0 0 34px;
+        padding-left: 5px;
+        padding-right: 1px;
     }
 
     .period-select {
-        min-width: 48px;
+        width: 48px;
+        flex: 0 0 48px;
         font-size: 0.75em;
+        padding-left: 5px;
+        padding-right: 1px;
     }
 
     .time-separator {
         font-size: 1em;
-        margin: 0 1px;
+        margin: 0 2px;
     }
 
     .clear-btn {
@@ -428,12 +451,12 @@ main {
 @media (max-width: 360px) {
     .time-inputs {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 8px;
     }
 
     .day-header {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
         text-align: center;
     }
 
@@ -442,23 +465,32 @@ main {
     }
 
     .custom-time-input {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 6px 8px;
-        gap: 4px;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 5px 7px;
+        gap: 3px;
         border-radius: 8px;
     }
 
     .time-select {
-        min-width: 30px;
-        padding: 4px 5px;
+        padding: 4px 2px 4px 5px;
         font-size: 0.75em;
-        border-radius: 6px;
+        border-radius: 5px;
+    }
+
+    .hour-select, .minute-select {
+        width: 30px;
+        flex: 0 0 30px;
+        padding-left: 4px;
+        padding-right: 1px;
     }
 
     .period-select {
-        min-width: 45px;
+        width: 42px;
+        flex: 0 0 42px;
         font-size: 0.7em;
+        padding-left: 4px;
+        padding-right: 1px;
     }
 
     .time-separator {
