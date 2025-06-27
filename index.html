@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دوام عبادة</title>
+    <meta name="description" content="تطبيق لتسجيل ومتابعة أوقات الدوام اليومي">
+    <meta name="theme-color" content="#4facfe">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="دوام عبادة">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-icon">
+                <img src="pic.png" alt="دوام عبادة" class="app-icon">
+            </div>
+            <h1>دوام عبادة</h1>
+            <p>تسجيل ومتابعة أوقات الدوام اليومي</p>
+        </header>
+
+        <main>
+            <div class="summary-card">
+                <h2>إجمالي ساعات الأسبوع</h2>
+                <div class="total-hours" id="totalHours">0 ساعة و 0 دقيقة</div>
+            </div>
+
+            <div class="days-container">
+                <div class="day-card" data-day="saturday">
+                    <div class="day-header">
+                        <h3>السبت</h3>
+                        <div class="day-total" id="saturday-total">0 ساعة</div>
+                    </div>
+                    <div class="time-inputs">
+                        <div class="input-group">
+                            <label for="saturday-start">وقت البداية:</label>
+                            <div class="custom-time-input">
+                                <select id="saturday-start-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="saturday-start-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="saturday-start-period" class="time-select period-select">
+                                    <option value="AM" selected>صباحاً</option>
+                                    <option value="PM">مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="saturday-end">وقت النهاية:</label>
+                            <div class="custom-time-input">
+                                <select id="saturday-end-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="saturday-end-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="saturday-end-period" class="time-select period-select">
+                                    <option value="AM">صباحاً</option>
+                                    <option value="PM" selected>مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="sunday">
+                    <div class="day-header">
+                        <h3>الأحد</h3>
+                        <div class="day-total" id="sunday-total">0 ساعة</div>
+                    </div>
+                    <div class="time-inputs">
+                        <div class="input-group">
+                            <label for="sunday-start">وقت البداية:</label>
+                            <div class="custom-time-input">
+                                <select id="sunday-start-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="sunday-start-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="sunday-start-period" class="time-select period-select">
+                                    <option value="AM" selected>صباحاً</option>
+                                    <option value="PM">مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="sunday-end">وقت النهاية:</label>
+                            <div class="custom-time-input">
+                                <select id="sunday-end-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="sunday-end-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="sunday-end-period" class="time-select period-select">
+                                    <option value="AM">صباحاً</option>
+                                    <option value="PM" selected>مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="monday">
+                    <div class="day-header">
+                        <h3>الاثنين</h3>
+                        <div class="day-total" id="monday-total">0 ساعة</div>
+                    </div>
+                    <div class="time-inputs">
+                        <div class="input-group">
+                            <label for="monday-start">وقت البداية:</label>
+                            <div class="custom-time-input">
+                                <select id="monday-start-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="monday-start-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="monday-start-period" class="time-select period-select">
+                                    <option value="AM" selected>صباحاً</option>
+                                    <option value="PM">مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="monday-end">وقت النهاية:</label>
+                            <div class="custom-time-input">
+                                <select id="monday-end-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="monday-end-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="monday-end-period" class="time-select period-select">
+                                    <option value="AM">صباحاً</option>
+                                    <option value="PM" selected>مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="tuesday">
+                    <div class="day-header">
+                        <h3>الثلاثاء</h3>
+                        <div class="day-total" id="tuesday-total">0 ساعة</div>
+                    </div>
+                    <div class="time-inputs">
+                        <div class="input-group">
+                            <label for="tuesday-start">وقت البداية:</label>
+                            <div class="custom-time-input">
+                                <select id="tuesday-start-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="tuesday-start-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="tuesday-start-period" class="time-select period-select">
+                                    <option value="AM" selected>صباحاً</option>
+                                    <option value="PM">مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="tuesday-end">وقت النهاية:</label>
+                            <div class="custom-time-input">
+                                <select id="tuesday-end-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="tuesday-end-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="tuesday-end-period" class="time-select period-select">
+                                    <option value="AM">صباحاً</option>
+                                    <option value="PM" selected>مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="wednesday">
+                    <div class="day-header">
+                        <h3>الأربعاء</h3>
+                        <div class="day-total" id="wednesday-total">0 ساعة</div>
+                    </div>
+                    <div class="time-inputs">
+                        <div class="input-group">
+                            <label for="wednesday-start">وقت البداية:</label>
+                            <div class="custom-time-input">
+                                <select id="wednesday-start-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="wednesday-start-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="wednesday-start-period" class="time-select period-select">
+                                    <option value="AM" selected>صباحاً</option>
+                                    <option value="PM">مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="wednesday-end">وقت النهاية:</label>
+                            <div class="custom-time-input">
+                                <select id="wednesday-end-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="wednesday-end-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="wednesday-end-period" class="time-select period-select">
+                                    <option value="AM">صباحاً</option>
+                                    <option value="PM" selected>مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="thursday">
+                    <div class="day-header">
+                        <h3>الخميس</h3>
+                        <div class="day-total" id="thursday-total">0 ساعة</div>
+                    </div>
+                    <div class="time-inputs">
+                        <div class="input-group">
+                            <label for="thursday-start">وقت البداية:</label>
+                            <div class="custom-time-input">
+                                <select id="thursday-start-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="thursday-start-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="thursday-start-period" class="time-select period-select">
+                                    <option value="AM" selected>صباحاً</option>
+                                    <option value="PM">مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="thursday-end">وقت النهاية:</label>
+                            <div class="custom-time-input">
+                                <select id="thursday-end-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="thursday-end-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="thursday-end-period" class="time-select period-select">
+                                    <option value="AM">صباحاً</option>
+                                    <option value="PM" selected>مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="friday">
+                    <div class="day-header">
+                        <h3>الجمعة</h3>
+                        <div class="day-total" id="friday-total">0 ساعة</div>
+                    </div>
+                    <div class="time-inputs">
+                        <div class="input-group">
+                            <label for="friday-start">وقت البداية:</label>
+                            <div class="custom-time-input">
+                                <select id="friday-start-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="friday-start-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="friday-start-period" class="time-select period-select">
+                                    <option value="AM" selected>صباحاً</option>
+                                    <option value="PM">مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="friday-end">وقت النهاية:</label>
+                            <div class="custom-time-input">
+                                <select id="friday-end-hour" class="time-select hour-select">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="time-separator">:</span>
+                                <select id="friday-end-minute" class="time-select minute-select">
+                                    <option value="00" selected>00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="friday-end-period" class="time-select period-select">
+                                    <option value="AM">صباحاً</option>
+                                    <option value="PM" selected>مساءً</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="clearAllBtn" class="clear-btn">مسح جميع البيانات</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- مودال تأكيد المسح -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>تأكيد المسح</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-icon">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p>هل أنت متأكد من أنك تريد مسح جميع البيانات؟</p>
+                <p class="modal-warning">لا يمكن التراجع عن هذا الإجراء</p>
+            </div>
+            <div class="modal-footer">
+                <button id="confirmDelete" class="btn-confirm">نعم، امسح البيانات</button>
+                <button id="cancelDelete" class="btn-cancel">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال نجاح المسح -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success">
+            <div class="modal-header">
+                <h3>تم بنجاح!</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-icon success">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p>تم مسح جميع البيانات بنجاح!</p>
+            </div>
+            <div class="modal-footer">
+                <button id="closeSuccess" class="btn-success">حسناً</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // تسجيل Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
